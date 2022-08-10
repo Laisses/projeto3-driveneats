@@ -137,3 +137,28 @@ form label > p {
     font-weight: 400;
     color: #000000;
 }
+
+.sobremesa form {
+    margin-bottom: 85px;
+}
+
+.btn {
+    width: 100%;
+    height: 92px;
+    padding: 15px 25px;
+    background-color: #ffffff;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.btn button {
+    background-color: #cbcbcb;
+    height: 61px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 400;
+    color: #ffffff;    
+    border: none;
+    border-radius: 50px;
+}
