@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Righteous";
+    src: url("assets/fonts/Righteous-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("assets/fonts/Roboto-Light.ttf");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("assets/fonts/Roboto-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("assets/fonts/Roboto-Bold.ttf");
+    font-weight: 700;
+}
+
+body {
+    font-family: "Roboto";
+    background-color: #E5E5E5;
+}
+
+.title {
+    width: 100%;
+    height: 92px;
+    background-color: #CF2B2B;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 14px 0 18px 21px;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.title h1 {
+    font-size: 44px;
+    font-family: "Righteous", cursive;
+    color: #FFFFFF;
+}
+
+.title h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.prato-principal {
+    margin-top: 123px;
+}
+
+.prato-principal, .bebida, .sobremesa {
+    margin-left: 19px;
+}
+
+.prato-principal h3, .bebida h3, .sobremesa h3 {
+    font-family: "Righteous", cursive;
+    font-size: 26px;
+    margin-bottom: 17px;
+    color: #333333;
+}
+
+img {
+    width: 144px;
+    height: 87px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.prato-principal h4, .bebida h4, .sobremesa h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #333333;
+}
+
+form {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: scroll;
+}
+
+input[type="radio"] {
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+input[type="radio"]:checked + label {
+    box-shadow: 0 0 0 5px #32B72F inset;
+}
+
+input[type="radio"]:checked + label .valor div {
+    background-image: url("assets/images/checkmark-circle.svg");
+    background-size: cover;
+}
+
+form label {
+    width: 172px;
+    padding: 18px 12px 10px 14px;
+    margin-right: 16px;
+    margin-bottom: 30px;
+    border-radius: 9px;
+    background-color: #FFFFFF;
+}
+
+form label p {
+    width: 147px;
+}
+
+form label > p {
+    font-size: 15px;
+    font-weight: 300;
+    margin-bottom: 8px;
+    color: #a6a6a6;
+}
+
+.valor {
+    display: flex;
+}
+
+.valor div {
+    width: 19px;
+    height: 19px;
+}
+
+.valor p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+}
