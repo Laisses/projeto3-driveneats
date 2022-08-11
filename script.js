@@ -12,7 +12,7 @@ const enableBtn = () => {
     const btn = document.querySelector("button");
         
     btn.textContent = "Fechar pedido";
-    btn.style.backgroundColor = "#32B72F";
+    btn.classList.add("bg-green");
     btn.removeAttribute("disabled");
 }
 
@@ -30,14 +30,14 @@ const calculatePrice = () => {
     return soma.toFixed(2);
 }
 
-prato
+/*prato
 if (prato) {
     querySelector(`label[for=${prato.id}]`)
-}
+}*/
 
 const completeOrder = () => {
     const valor = calculatePrice();
-    
+
 
     const prato = document.querySelector("label").children;
     console.log(prato[1].innerText);
