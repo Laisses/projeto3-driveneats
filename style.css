@@ -154,6 +154,7 @@ form label > p {
 
 .btn button {
     background-color: #cbcbcb;
+    width: 100%;
     height: 61px;
     font-size: 20px;
     text-align: center;
