@@ -30,8 +30,22 @@ const calculatePrice = () => {
     return soma.toFixed(2);
 }
 
+prato
+if (prato) {
+    querySelector(`label[for=${prato.id}]`)
+}
+
 const completeOrder = () => {
     const valor = calculatePrice();
+    
+
+    const prato = document.querySelector("label").children;
+    console.log(prato[1].innerText);
+
+    const message = `Total: R$ ${valor}`;
+    console.log(message);
+    
+
 
 }
 
