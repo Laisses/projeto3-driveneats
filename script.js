@@ -19,3 +19,24 @@ const enableBtn = () => {
 document.querySelectorAll("form").forEach(form => {
     form.onclick = isChecked;
 });
+
+const calculatePrice = () => {
+    const prato = parseInt(document.querySelector("input[name=prato]:checked").value);
+    const bebida = parseFloat(document.querySelector("input[name=bebida]:checked").value);
+    const sobremesa = parseInt(document.querySelector("input[name=sobremesa]:checked").value);
+
+    const soma = prato + bebida + sobremesa;
+    
+    return soma.toFixed(2);
+}
+
+const completeOrder = () => {
+    const valor = calculatePrice();
+
+}
+
+/*Olá, gostaria de fazer o pedido:
+- Prato: Frango Yin Yang
+- Bebida: Coquinha Gelada
+- Sobremesa: Pudim
+Total: R$ 27.70 */
