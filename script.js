@@ -42,16 +42,24 @@ const chooseOrder = () => {
     return {pratoEscolhido, bebidaEscolhida, sobremesaEscolhida}
 }
 
-const completeOrder = () => {
+const createMessage = () => {
     const pedido = chooseOrder();
     const valor = calculatePrice();
 
-    const menssagem = 
+    const mensagem = 
         `Olá, gostaria de fazer o pedido:
-        - Prato: ${pedido.pratoEscolhido} 
-        - Bebida: ${pedido.bebidaEscolhida} 
-        - Sobremesa: ${pedido.sobremesaEscolhida} 
-        Total: R$ ${valor}`;       
-    
-    console.log(menssagem);
+        - Prato: ${pedido.pratoEscolhido}
+        - Bebida: ${pedido.bebidaEscolhida}
+        - Sobremesa: ${pedido.sobremesaEscolhida}
+        Total: R$ ${valor}`;
+
+    return mensagem;
 }
+
+const completeOrder = () => {  
+    const teste = encodesURI(createMessage());
+    console.log(teste);
+}
+
+const encodesURI = mensagem => encodeURIComponent(mensagem);
+   
