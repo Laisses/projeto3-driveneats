@@ -56,10 +56,11 @@ const createMessage = () => {
     return mensagem;
 }
 
-const completeOrder = () => {  
-    const teste = encodesURI(createMessage());
-    console.log(teste);
-}
-
 const encodesURI = mensagem => encodeURIComponent(mensagem);
-   
+
+const completeOrder = () => {  
+    const mensagem = encodesURI(createMessage());
+    const url = `https://wa.me/?text=${mensagem}`;
+
+    window.location.assign(url);
+}
