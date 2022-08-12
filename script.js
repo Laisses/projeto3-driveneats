@@ -35,22 +35,23 @@ const chooseOrder = () => {
     const bebida = document.querySelector("input[name=bebida]:checked");
     const sobremesa = document.querySelector("input[name=sobremesa]:checked");
     
-    const nomeDoPrato = document.querySelector(`label[for=${prato.id}]`).children[1].innerText;
-    const nomeDaBebida = document.querySelector(`label[for=${bebida.id}]`).children[1].innerText;
-    const nomeDaSobremesa = document.querySelector(`label[for=${sobremesa.id}]`).children[1].innerText;
+    const pratoEscolhido = document.querySelector(`label[for=${prato.id}]`).children[1].innerText;
+    const bebidaEscolhida = document.querySelector(`label[for=${bebida.id}]`).children[1].innerText;
+    const sobremesaEscolhida = document.querySelector(`label[for=${sobremesa.id}]`).children[1].innerText;
 
-    return {nomeDoPrato, nomeDaBebida, nomeDaSobremesa}
+    return {pratoEscolhido, bebidaEscolhida, sobremesaEscolhida}
 }
 
 const completeOrder = () => {
-        
+    const pedido = chooseOrder();
     const valor = calculatePrice();
-    const message = `Total: R$ ${valor}`;
-    console.log(message);
-}
 
-/*Olá, gostaria de fazer o pedido:
-- Prato: Frango Yin Yang
-- Bebida: Coquinha Gelada
-- Sobremesa: Pudim
-Total: R$ 27.70 */
+    const menssagem = 
+        `Olá, gostaria de fazer o pedido:
+        - Prato: ${pedido.pratoEscolhido} 
+        - Bebida: ${pedido.bebidaEscolhida} 
+        - Sobremesa: ${pedido.sobremesaEscolhida} 
+        Total: R$ ${valor}`;       
+    
+    console.log(menssagem);
+}
