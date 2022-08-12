@@ -30,23 +30,23 @@ const calculatePrice = () => {
     return soma.toFixed(2);
 }
 
-/*prato
-if (prato) {
-    querySelector(`label[for=${prato.id}]`)
-}*/
+const chooseOrder = () => {
+    const prato = document.querySelector("input[name=prato]:checked");
+    const bebida = document.querySelector("input[name=bebida]:checked");
+    const sobremesa = document.querySelector("input[name=sobremesa]:checked");
+    
+    const nomeDoPrato = document.querySelector(`label[for=${prato.id}]`).children[1].innerText;
+    const nomeDaBebida = document.querySelector(`label[for=${bebida.id}]`).children[1].innerText;
+    const nomeDaSobremesa = document.querySelector(`label[for=${sobremesa.id}]`).children[1].innerText;
+
+    return {nomeDoPrato, nomeDaBebida, nomeDaSobremesa}
+}
 
 const completeOrder = () => {
+        
     const valor = calculatePrice();
-
-
-    const prato = document.querySelector("label").children;
-    console.log(prato[1].innerText);
-
     const message = `Total: R$ ${valor}`;
     console.log(message);
-    
-
-
 }
 
 /*Olá, gostaria de fazer o pedido:
