@@ -31,7 +31,6 @@ body {
 
 nav, main{
     background-color: #E5E5E5;
-    opacity: 0.1;
 }
 
 .title {
@@ -245,8 +244,6 @@ form label > p {
 .opacity {
     opacity: 0.1;
 }
-
-
 
 .confirmacao {
     margin-bottom: 1000px; 
