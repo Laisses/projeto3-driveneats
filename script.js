@@ -42,6 +42,31 @@ const chooseOrder = () => {
     return {pratoEscolhido, bebidaEscolhida, sobremesaEscolhida}
 }
 
+const setsModal = () => {
+    const navBg = document.querySelector("nav");
+    const mainBg = document.querySelector("main");
+    const modal = document.querySelector(".confirmacao");
+
+    navBg.classList.add("opacity");
+    mainBg.classList.add("opacity");
+    modal.classList.remove("escondido");
+}
+
+document.querySelector(".btn-primary").onclick = setsModal;
+
+const confirmOrder = () => {
+    const orderBtn = document.querySelector(".btn-primary");
+
+}
+
+
+
+
+
+
+
+
+
 const createMessage = () => {
     const pedido = chooseOrder();
     const valor = calculatePrice();
@@ -58,7 +83,7 @@ const createMessage = () => {
 
 const encodesURI = mensagem => encodeURIComponent(mensagem);
 
-const completeOrder = () => {  
+const sendMessage = () => {  
     const mensagem = encodesURI(createMessage());
     const url = `https://wa.me/?text=${mensagem}`;
 
