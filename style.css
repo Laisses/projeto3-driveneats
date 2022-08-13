@@ -245,6 +245,7 @@ form label > p {
     opacity: 0.1;
 }
 
-.confirmacao {
-    margin-bottom: 1000px; 
+.stop-scroll {
+    height: 100vh;
+    overflow-y: hidden;
 }

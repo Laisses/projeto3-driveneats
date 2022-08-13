@@ -63,14 +63,17 @@ const construtcModal = () => {
 }
 
 const displayModal = () => {
+    document.documentElement.scrollTop = 0;   
     construtcModal();
 
     const navBg = document.querySelector("nav");
     const mainBg = document.querySelector("main");
+    const body = document.querySelector("body");
     const modal = document.querySelector(".confirmacao");
 
     navBg.classList.toggle("opacity");
     mainBg.classList.toggle("opacity");
+    body.classList.toggle("stop-scroll");
     modal.classList.toggle("escondido");
 }
 
@@ -81,15 +84,8 @@ const getData = () => {
     return {nome, endereco};
 }
 
-
-
 document.querySelector(".btn-fechar-pedido").onclick = displayModal;
 document.querySelector(".btn-cancelar-pedido").onclick = displayModal;
-
-
-
-const confirmOrder = () => {   
-}
 
 const createMessage = () => {
     const pedido = chooseOrder();
