@@ -21,16 +21,16 @@ document.querySelectorAll("form").forEach(form => {
 });
 
 const getPrices = () => {
-    const prato = parseInt(document.querySelector("input[name=prato]:checked").value);
+    const prato = parseFloat(document.querySelector("input[name=prato]:checked").value);
     const bebida = parseFloat(document.querySelector("input[name=bebida]:checked").value);
-    const sobremesa = parseInt(document.querySelector("input[name=sobremesa]:checked").value);
+    const sobremesa = parseFloat(document.querySelector("input[name=sobremesa]:checked").value);
     
     return {prato, bebida, sobremesa};
 }
 
 const calculateTotal = () => {
     const precos = getPrices();
-    return (precos.prato + precos.bebida + precos.sobremesa).toFixed(2);
+    return (precos.prato + precos.bebida + precos.sobremesa);
 }
 
 const chooseOrder = () => {
@@ -48,15 +48,18 @@ const chooseOrder = () => {
 const construtcModal = () => {
     const pedido = chooseOrder();
     const valor = getPrices();
-    const total = calculateTotal();    
+    const total = calculateTotal();
     
     document.querySelector(".confirmacao-prato .item").innerText = pedido.pratoEscolhido;
-    document.querySelector(".confirmacao-prato .valor").innerText = valor.prato;
+    document.querySelector(".confirmacao-prato .valor").innerText = valor.prato.toFixed(2).replace(/\./, ",");
+
     document.querySelector(".confirmacao-bebida .item").innerText = pedido.bebidaEscolhida;
-    document.querySelector(".confirmacao-bebida .valor").innerText = valor.bebida.toString().replace(/\./, ",");
+    document.querySelector(".confirmacao-bebida .valor").innerText = valor.bebida.toFixed(2).replace(/\./, ",");
+
     document.querySelector(".confirmacao-sobremesa .item").innerText = pedido.sobremesaEscolhida;
-    document.querySelector(".confirmacao-sobremesa .valor").innerText = valor.sobremesa;
-    document.querySelector(".confirmacao-total .valor").innerText = total.toString().replace(/\./, ",");
+    document.querySelector(".confirmacao-sobremesa .valor").innerText = valor.sobremesa.toFixed(2).replace(/\./, ",");
+
+    document.querySelector(".confirmacao-total .valor").innerText = total.toFixed(2).replace(/\./, ",");
 }
 
 const displayModal = () => {
@@ -90,7 +93,7 @@ const confirmOrder = () => {
 
 const createMessage = () => {
     const pedido = chooseOrder();
-    const valor = calculateTotal();
+    const valor = calculateTotal().toFixed(2);
     const dados = getData();
 
     const mensagem = 
