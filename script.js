@@ -52,12 +52,12 @@ const setsModal = () => {
     modal.classList.toggle("escondido");
 }
 
-document.querySelector(".btn-primary").onclick = setsModal;
-document.querySelector(".confirmacao-btn-cancelar").onclick = setsModal;
+document.querySelector(".btn-fechar-pedido").onclick = setsModal;
+document.querySelector(".btn-cancelar-pedido").onclick = setsModal;
 
 
 const confirmOrder = () => {
-    const orderBtn = document.querySelector(".btn-primary");
+    const orderBtn = document.querySelector("");
 
 }
 
