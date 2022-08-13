@@ -28,7 +28,7 @@ const getPrices = () => {
     return {prato, bebida, sobremesa};
 }
 
-const calculatePrice = () => {
+const calculateTotal = () => {
     const precos = getPrices();
     return (precos.prato + precos.bebida + precos.sobremesa).toFixed(2);
 }
@@ -48,14 +48,15 @@ const chooseOrder = () => {
 const construtcModal = () => {
     const pedido = chooseOrder();
     const valor = getPrices();
+    const total = calculateTotal();    
     
     document.querySelector(".confirmacao-prato .item").innerText = pedido.pratoEscolhido;
-    document.querySelector(".confirmacao-prato .valor").innerHTML = valor.prato;
+    document.querySelector(".confirmacao-prato .valor").innerText = valor.prato;
     document.querySelector(".confirmacao-bebida .item").innerText = pedido.bebidaEscolhida;
-    document.querySelector(".confirmacao-bebida .valor").innerText = valor.bebida;
+    document.querySelector(".confirmacao-bebida .valor").innerText = valor.bebida.toString().replace(/\./, ",");
     document.querySelector(".confirmacao-sobremesa .item").innerText = pedido.sobremesaEscolhida;
     document.querySelector(".confirmacao-sobremesa .valor").innerText = valor.sobremesa;
-    document.querySelector(".confirmacao-total .valor").innerText = calculatePrice();
+    document.querySelector(".confirmacao-total .valor").innerText = total.toString().replace(/\./, ",");
 }
 
 const displayModal = () => {
@@ -89,7 +90,7 @@ const confirmOrder = () => {
 
 const createMessage = () => {
     const pedido = chooseOrder();
-    const valor = calculatePrice();
+    const valor = calculateTotal();
     const dados = getData();
 
     const mensagem = 
