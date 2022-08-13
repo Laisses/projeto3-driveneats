@@ -20,14 +20,17 @@ document.querySelectorAll("form").forEach(form => {
     form.onclick = isChecked;
 });
 
-const calculatePrice = () => {
+const getPrices = () => {
     const prato = parseInt(document.querySelector("input[name=prato]:checked").value);
     const bebida = parseFloat(document.querySelector("input[name=bebida]:checked").value);
     const sobremesa = parseInt(document.querySelector("input[name=sobremesa]:checked").value);
-
-    const soma = prato + bebida + sobremesa;
     
-    return soma.toFixed(2);
+    return {prato, bebida, sobremesa};
+}
+
+const calculatePrice = () => {
+    const precos = getPrices();
+    return (precos.prato + precos.bebida + precos.sobremesa).toFixed(2);
 }
 
 const chooseOrder = () => {
@@ -39,10 +42,25 @@ const chooseOrder = () => {
     const bebidaEscolhida = document.querySelector(`label[for=${bebida.id}]`).children[1].innerText;
     const sobremesaEscolhida = document.querySelector(`label[for=${sobremesa.id}]`).children[1].innerText;
 
-    return {pratoEscolhido, bebidaEscolhida, sobremesaEscolhida}
+    return {pratoEscolhido, bebidaEscolhida, sobremesaEscolhida};
 }
 
-const setsModal = () => {
+const construtcModal = () => {
+    const pedido = chooseOrder();
+    const valor = getPrices();
+    
+    document.querySelector(".confirmacao-prato .item").innerText = pedido.pratoEscolhido;
+    document.querySelector(".confirmacao-prato .valor").innerHTML = valor.prato;
+    document.querySelector(".confirmacao-bebida .item").innerText = pedido.bebidaEscolhida;
+    document.querySelector(".confirmacao-bebida .valor").innerText = valor.bebida;
+    document.querySelector(".confirmacao-sobremesa .item").innerText = pedido.sobremesaEscolhida;
+    document.querySelector(".confirmacao-sobremesa .valor").innerText = valor.sobremesa;
+    document.querySelector(".confirmacao-total .valor").innerText = calculatePrice();
+}
+
+const displayModal = () => {
+    construtcModal();
+
     const navBg = document.querySelector("nav");
     const mainBg = document.querySelector("main");
     const modal = document.querySelector(".confirmacao");
@@ -52,33 +70,37 @@ const setsModal = () => {
     modal.classList.toggle("escondido");
 }
 
-document.querySelector(".btn-fechar-pedido").onclick = setsModal;
-document.querySelector(".btn-cancelar-pedido").onclick = setsModal;
+const getData = () => {
+    const nome = prompt("Qual o seu nome?");
+    const endereco = prompt("E o seu endereço?");
 
-
-const confirmOrder = () => {
-    const orderBtn = document.querySelector("");
-
+    return {nome, endereco};
 }
 
 
 
+document.querySelector(".btn-fechar-pedido").onclick = displayModal;
+document.querySelector(".btn-cancelar-pedido").onclick = displayModal;
 
 
 
-
-
+const confirmOrder = () => {   
+}
 
 const createMessage = () => {
     const pedido = chooseOrder();
     const valor = calculatePrice();
+    const dados = getData();
 
     const mensagem = 
         `Olá, gostaria de fazer o pedido:
         - Prato: ${pedido.pratoEscolhido}
         - Bebida: ${pedido.bebidaEscolhida}
         - Sobremesa: ${pedido.sobremesaEscolhida}
-        Total: R$ ${valor}`;
+        Total: R$ ${valor}
+        
+        Nome: ${dados.nome}
+        Endereço: ${dados.endereco}`;
 
     return mensagem;
 }
@@ -91,3 +113,5 @@ const sendMessage = () => {
 
     window.location.assign(url);
 }
+
+document.querySelector(".btn-confirmar-pedido").onclick = sendMessage;
