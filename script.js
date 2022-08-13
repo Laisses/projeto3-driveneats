@@ -93,7 +93,7 @@ const checkData = () => {
         return {nome, endereco};
     } else {
         alert("Você precisa preencher com os seus dados");
-        checkData();
+        return checkData();
     }
 }
 
