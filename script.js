@@ -47,12 +47,14 @@ const setsModal = () => {
     const mainBg = document.querySelector("main");
     const modal = document.querySelector(".confirmacao");
 
-    navBg.classList.add("opacity");
-    mainBg.classList.add("opacity");
-    modal.classList.remove("escondido");
+    navBg.classList.toggle("opacity");
+    mainBg.classList.toggle("opacity");
+    modal.classList.toggle("escondido");
 }
 
 document.querySelector(".btn-primary").onclick = setsModal;
+document.querySelector(".confirmacao-btn-cancelar").onclick = setsModal;
+
 
 const confirmOrder = () => {
     const orderBtn = document.querySelector(".btn-primary");
