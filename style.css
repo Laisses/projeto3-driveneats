@@ -193,6 +193,7 @@ form label > p {
 .confirmacao div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .confirmacao h2 {
@@ -206,6 +207,7 @@ form label > p {
 .confirmacao-prato p, .confirmacao-bebida p, .confirmacao-sobremesa p {
     font-size: 22px;
     color: #ffffff;
+    margin-bottom: 10px;
 }
 
 .confirmacao-total p {
@@ -235,6 +237,7 @@ form label > p {
     background-color: transparent;
     border: none;
     outline: none;
+    margin-top: 10px;
 }
 
 .escondido {
