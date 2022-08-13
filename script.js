@@ -84,13 +84,26 @@ const getData = () => {
     return {nome, endereco};
 }
 
+const checkData = () => {
+    const dados = getData();
+    const nome = dados.nome;
+    const endereco = dados.endereco;
+
+    if (nome !== null && nome !== "" && endereco !== null && endereco !== "") {
+        return {nome, endereco};
+    } else {
+        alert("Você precisa preencher com os seus dados");
+        checkData();
+    }
+}
+
 document.querySelector(".btn-fechar-pedido").onclick = displayModal;
 document.querySelector(".btn-cancelar-pedido").onclick = displayModal;
 
 const createMessage = () => {
     const pedido = chooseOrder();
     const valor = calculateTotal().toFixed(2);
-    const dados = getData();
+    const dados = checkData();
 
     const mensagem = 
         `Olá, gostaria de fazer o pedido:
