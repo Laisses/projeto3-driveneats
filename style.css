@@ -169,9 +169,69 @@ form label > p {
     background-color: #32B72F;
 }
 
+.confirmacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 21px 18px;
+    width: 91%;
+    height: 353px;
+    margin: auto;
+    background-color: #50d074;
+    border-radius: 9px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+}
 
+.confirmacao div {
+    display: flex;
+    justify-content: space-between;
+}
 
+.confirmacao h2 {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 28px;
+}
 
+.confirmacao-prato p, .confirmacao-bebida p, .confirmacao-sobremesa p {
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.confirmacao-total p {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.confirmacao-btn {    
+    height: 52px;
+    background-color: #ffffff;
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    font-size: 22px;
+    text-align: center;
+    color: #50d074;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.confirmacao-btn-cancelar {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: #ffffff;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.escondido {
+    display: none;
+}
 
 
 .confirmacao {
